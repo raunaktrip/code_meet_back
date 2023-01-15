@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     })
     socket.on('code_change',(payload)=>{
       room_val_obj[[payload.roomId]]= payload.newValue;
-      io.sockets.to(payload.roomId).emit('code_change',payload);
+      socket.to(payload.roomId).emit('code_change',payload);
     })
     // socket.on("disconnect", () => {
     //   // socket.rooms.size === 0
